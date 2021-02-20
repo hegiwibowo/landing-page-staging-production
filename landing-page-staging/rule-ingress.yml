@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: landing-page-ingress
+  namespace: lp-staging
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: st-lp.hegiwibowo.xyz
+    http:
+      paths:
+      #- path: /belajar
+      - backend:
+          serviceName: landing-page
+          servicePort: 80
